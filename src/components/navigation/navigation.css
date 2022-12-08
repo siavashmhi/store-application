@@ -1,0 +1,30 @@
+.navigation {
+    width: 100%;
+    background-color: #292961;
+    padding: 15px;
+    color: #fff;
+}
+
+.navContainer {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navContainer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.cart-icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
