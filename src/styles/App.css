@@ -8,3 +8,55 @@
 body {
   background-color: #f6f6f6;
 }
+
+.homePageContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 5rem;
+  grid-row-gap: 3rem;
+  max-width: 1170px;
+  width: 90vw;
+}
+
+.product {
+  background-color: #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #444;
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.descContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid black;
+  margin-top: 5px;
+}
+
+.homePageContainer .btn {
+  border: none;
+  outline: none;
+  background-color: #1348cc;
+  color: #fff;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.homePageContainer .btn:hover {
+  background-color: #253bdd;
+}
