@@ -1,7 +1,8 @@
 import {createContext, useContext, useReducer} from 'react';
-import { initialState, reducer} from './productReducer';
+import reducer from './productReducer';
 const ProductsContext = createContext()
 const DispatchProducts = createContext()
+const initialState = { products: [], totalPrice: 0}
 
 const ProductContextProvider = ({children}) => {
     const [products, dispatch] = useReducer(reducer, initialState)
@@ -18,4 +19,4 @@ const ProductContextProvider = ({children}) => {
 export default ProductContextProvider;
 
 export const useProducts = () => useContext(ProductsContext)
-export const useDispatch = () => useContext(DispatchProducts)
+export const useDispatchProducts = () => useContext(DispatchProducts)
