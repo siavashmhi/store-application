@@ -16,22 +16,19 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+    background-color: #fff;
     border: 1px solid #ccc;
-    padding: 5px;
+    padding: 1rem;
     flex: 1;
-    /* max-width: 600px; */
-    /* max-width: 1170px; */
-    /* width: 70vw; */
 }
 
 .productItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
     border-radius: 5px;
-    margin-top: 10px;
 }
 
 .productItem .productImage {
@@ -52,7 +49,5 @@
     border: 1px solid #ccc;
     width: 30%;
     margin-left: 3rem;
-    /* max-width: 600px; */
-    /* max-width: 1170px;
-    width: 50vw; */
+    padding: 1rem;
 }

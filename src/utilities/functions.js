@@ -9,5 +9,11 @@ function checkInCart(cart, product) {
     }
 } 
 
+const sumItems = items => {
+    const itemsCounter = items.reduce((total, product) => total + product.quantity, 0);
+    let totalPrice = items.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
+    return {itemsCounter, totalPrice}
+}
 
-export { checkInCart }
+
+export { checkInCart, sumItems }

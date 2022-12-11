@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
+import { BsFillTrashFill } from 'react-icons/bs'
 import '../styles/cartpage.css'
 
 const CartPage = () => {
-    const { products } = useProducts()
+    const { products, totalPrice } = useProducts()
     const dispatch = useDispatchProducts()
 
     if(!products.length) {
@@ -29,7 +30,9 @@ const CartPage = () => {
                     {
                         item.quantity > 1 ? 
                         <button onClick={() => dispatch({type: "DECREASE", payload: item})}>-</button> 
-                        : <button onClick={() => dispatch({type: "REMOVE", payload: item})}>delete</button>
+                        : <button onClick={() => dispatch({type: "REMOVE", payload: item})}>
+                            <BsFillTrashFill />
+                        </button>
                         
                     }
                     <button>{item.quantity}</button>
@@ -51,7 +54,7 @@ const CartPage = () => {
                         }
                     </section>
                     <section className='productSummery'>
-                        product summery
+                        {totalPrice}
                     </section>
                 </div>
             </main>
