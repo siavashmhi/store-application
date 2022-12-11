@@ -1,4 +1,4 @@
-import { sumItems } from "../utilities/functions"
+import { itemsCounterAndTotalPrice } from "../utilities/functions"
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -14,7 +14,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: [...state.products],
-                ...sumItems(state.products)
+                ...itemsCounterAndTotalPrice(state.products)
             }
         case "INCREASE":
             //find index of prodcut for increase quantity
@@ -30,7 +30,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: updatedProducts,
-                ...sumItems(state.products),
+                ...itemsCounterAndTotalPrice(updatedProducts),
             }
         case "DECREASE":
             //find index of product for decrease quantity
@@ -46,7 +46,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: cloneOfProducts,
-                ...sumItems(state.products)
+                ...itemsCounterAndTotalPrice(cloneOfProducts)
             }
         case "REMOVE":
             //get new products without this item
@@ -54,7 +54,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: [...newProducts],
-                ...sumItems(state.products),
+                ...itemsCounterAndTotalPrice(newProducts),
             }
         default:
             return state

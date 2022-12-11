@@ -12,7 +12,7 @@ body {
 .homePageContainer {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 120px;
 }
 
 .productList {
@@ -25,7 +25,8 @@ body {
 }
 
 .product {
-  background-color: #ccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
   color: #444;
@@ -43,20 +44,22 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-top: 1px solid black;
   margin-top: 5px;
 }
 
 .homePageContainer .btn {
   border: none;
   outline: none;
-  background-color: #1348cc;
+  background-color: #1a73e8;
   color: #fff;
   padding: 7px;
   border-radius: 5px;
   cursor: pointer;
+  min-width: 100px;
+  font-size: 1rem;
+  transition: all 0.1s ease;
 }
 
 .homePageContainer .btn:hover {
-  background-color: #253bdd;
+  background-color: #08499d;
 }

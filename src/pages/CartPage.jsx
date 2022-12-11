@@ -2,7 +2,8 @@ import React from 'react';
 import Layout from '../layout/Layout';
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
 import { BsFillTrashFill } from 'react-icons/bs'
-import '../styles/cartpage.css'
+import trashIcon from '../assets/images/trash.svg'
+import '../assets/styles/cartpage.css'
 
 const CartPage = () => {
     const { products, totalPrice } = useProducts()
@@ -24,14 +25,15 @@ const CartPage = () => {
                 </div>
                 <div className="productDesc">
                     <p>{item.name}</p>
-                    <span>{item.price * item.quantity}</span>
+                    <span>$ {item.price * item.quantity}</span>
                 </div>
                 <div className='productBtnContainer'>
                     {
                         item.quantity > 1 ? 
                         <button onClick={() => dispatch({type: "DECREASE", payload: item})}>-</button> 
                         : <button onClick={() => dispatch({type: "REMOVE", payload: item})}>
-                            <BsFillTrashFill />
+                            {/* <BsFillTrashFill /> */}
+                            <img src={trashIcon} alt="icon" style={{width: "20px"}}/>
                         </button>
                         
                     }

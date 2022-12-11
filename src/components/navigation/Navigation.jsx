@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiShoppingCart as Cart } from 'react-icons/fi'
+import shopCart from '../../assets/images/shop.svg'
 import './navigation.css'
 import { useProducts } from '../../context/ProductContextProvider';
 
@@ -12,15 +12,14 @@ const Navigation = () => {
         <header className='navigation'>
             <nav className='navbar'>
                 <ul className='navContainer'>
-                    <li>
-                        <NavLink to='/'>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/cart'>Cart</NavLink>
-                    </li>
-                    <p>{itemsCounter}</p>
+                    <li><NavLink to='/'>Products</NavLink></li>
                 </ul>
-                <Cart fontSize='1.5rem' className='cart-icon' />
+                <div className='cartIconContainer'>
+                    <NavLink to='/cart'>
+                        <img src={shopCart} alt="img" className='cart-icon'/>
+                    </NavLink>
+                    <span>{itemsCounter}</span>
+                </div>
             </nav>
         </header>
     );
