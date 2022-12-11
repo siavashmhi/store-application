@@ -2,7 +2,6 @@ const reducer = (state, action) => {
     switch(action.type) {
         //add product to cart for the first one
         case "ADD_TO_CART":
-            console.log(state);
             if(!state.products.find(item => item.id === action.payload.id)) {
                 state.products.push({
                     ...action.payload,
@@ -11,7 +10,6 @@ const reducer = (state, action) => {
             }
             return {...state, products: [...state.products]}
         case "INCREASE":
-            console.log(state);
             //find index of prodcut for increase quantity
             const index = state.products.findIndex(item => item.id === action.payload.id)
             //get clone of products
@@ -23,7 +21,22 @@ const reducer = (state, action) => {
             updatedProducts[index] = updatedItem
             
             return {...state, products: updatedProducts}
+        case "DECREASE":
+            //find index of product for decrease quantity
+            const index2 = state.products.findIndex(item => item.id === action.payload.id)
+            //get clone of products
+            const cloneOfProducts = [...state.products]
+            //get clone of product
+            const cloneOfproduct = {...cloneOfProducts[index2]}
+            //decrease product
+            cloneOfproduct.quantity--
+            cloneOfProducts[index2] = cloneOfproduct
 
+            return {...state, products: cloneOfProducts}
+        case "REMOVE":
+            //get new products without this item
+            const newProducts = state.products.filter(item => item.id !== action.payload.id)
+            return {...state, products: [...newProducts]}
         default:
             return state
     }

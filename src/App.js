@@ -7,14 +7,18 @@ import './styles/App.css'
 
 function App() {
   return (
-    <Router>
-      <ProductContextProvider>
-        <Switch>
-          <Route path="/cart" component={CartPage}/>
-          <Route path="/" component={HomePage} exact/>
-        </Switch>
-      </ProductContextProvider>
-    </Router>
+    <div className="App">
+      <Router>
+        <div className="body">
+          <ProductContextProvider>
+            <Switch>
+              <Route path="/cart" component={CartPage}/>
+              <Route path="/" component={HomePage} exact/>
+            </Switch>
+          </ProductContextProvider>
+        </div>
+      </Router>
+    </div>
   );
 }
 

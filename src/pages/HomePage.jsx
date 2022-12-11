@@ -1,9 +1,11 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import * as data from '../data.js'
-import { useDispatchProducts } from '../context/ProductContextProvider';
+import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
+import { checkInCart } from '../utilities/functions';
 
 const HomePage = () => {
+    const cartProducts = useProducts()
     const dispatch = useDispatchProducts()
 
     const renderProducts = product => {
@@ -16,12 +18,11 @@ const HomePage = () => {
                     <p>{product.name}</p>
                     <p>$ {product.price}</p>
                     <button className='btn' onClick={() => dispatch({type: "ADD_TO_CART", payload: product})}>
-                        Add to cart
+                        {
+                            checkInCart(cartProducts, product) ? "In cart" : "Add to cart"
+                        }
                     </button>
                 </div>
-                <button onClick={() => dispatch({type: "INCREASE", payload: product})}>
-                    +
-                </button>
             </section>
         )
     }
