@@ -1,16 +1,17 @@
 import { itemsCounterAndTotalPrice } from "../utilities/functions"
+import { toast } from "react-toastify"
 
 const reducer = (state, action) => {
     switch(action.type) {
         //add product to cart for the first one
-        case "ADD_TO_CART":
-            console.log(state);
+        case "ADD_TO_CART":;
             if(!state.products.find(item => item.id === action.payload.id)) {
                 state.products.push({
                     ...action.payload,
                     quantity: 1,
                 })
-            }
+            } 
+            
             return {
                 ...state,
                 products: [...state.products],

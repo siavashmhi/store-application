@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
-import { BsFillTrashFill } from 'react-icons/bs'
 import trashIcon from '../assets/images/trash.svg'
 import '../assets/styles/cartpage.css'
 

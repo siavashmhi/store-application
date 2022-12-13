@@ -1,17 +1,21 @@
 import React from 'react';
+import Product from '../components/Product';
 import Layout from '../layout/Layout';
 import * as data from '../data.js'
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
 import { toast } from 'react-toastify'
-import { checkInCart } from '../utilities/functions';
 
 const HomePage = () => {
-    const cartProducts = useProducts()
+    const { products } = useProducts()
     const dispatch = useDispatchProducts()
-
+    
     const addProductHandler = product => {
         dispatch({type: "ADD_TO_CART", payload: product})
-        toast.success(`${product.name} added to cart`)
+        if(products.find(p => p.id === product.id)) {
+            toast.error('this product has been added to cart')
+        } else {
+            toast.success(`${product.name} added to cart`)
+        }
     }
 
     return (
@@ -21,20 +25,8 @@ const HomePage = () => {
                     {
                         data.products.map((product) => {
                             return (
-                                <section key={product.id} className='product'>
-                                    <div>
-                                        <img src={product.image} alt="img"/>
-                                    </div>
-                                    <div className='descContainer'>
-                                        <p>{product.name}</p>
-                                        <p>$ {product.price}</p>
-                                        <button className='btn' onClick={() => addProductHandler(product)}>
-                                            {
-                                                checkInCart(cartProducts, product) ? "In cart" : "Add to cart"
-                                            }
-                                        </button>
-                                    </div>
-                                </section>
+                                <Product product={product}
+                                  addProductHandler={addProductHandler}/>
                             )
                         })
                     }
