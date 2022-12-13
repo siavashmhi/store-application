@@ -10,7 +10,6 @@
 
 .navContainer {
     display: flex;
-    width: 30%;
     justify-content: space-around;
     align-items: center;
 }
@@ -19,7 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 97%;
+    padding: 15px 180px;
+    height: 40px;
 }
 
 .navContainer a {
