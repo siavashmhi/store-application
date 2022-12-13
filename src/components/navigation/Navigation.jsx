@@ -5,7 +5,6 @@ import './navigation.css'
 import { useProducts } from '../../context/ProductContextProvider';
 
 const Navigation = () => {
-
     const { itemsCounter } = useProducts()
 
     return (

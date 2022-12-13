@@ -2,7 +2,13 @@ import {createContext, useContext, useReducer} from 'react';
 import reducer from './productReducer';
 const ProductsContext = createContext()
 const DispatchProducts = createContext()
-const initialState = { products: [], totalPrice: 0, itemsCounter: 0}
+const initialState = {
+    products: [],
+    totalPrice: 0, 
+    itemsCounter: 0, 
+    checkout: false
+}
+
 
 const ProductContextProvider = ({children}) => {
     const [products, dispatch] = useReducer(reducer, initialState)

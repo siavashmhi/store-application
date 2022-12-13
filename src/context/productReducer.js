@@ -14,7 +14,8 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 products: [...state.products],
-                ...itemsCounterAndTotalPrice(state.products)
+                ...itemsCounterAndTotalPrice(state.products),
+                checkout: false
             }
         case "INCREASE":
             //find index of prodcut for increase quantity
@@ -55,6 +56,20 @@ const reducer = (state, action) => {
                 ...state,
                 products: [...newProducts],
                 ...itemsCounterAndTotalPrice(newProducts),
+            }
+        case "CHECKOUT":
+            return {
+                products: [],
+                totalPrice: 0, 
+                itemsCounter: 0, 
+                checkout: true,
+            }
+        case "CLEAR":
+            return {
+                products: [],
+                totalPrice: 0, 
+                itemsCounter: 0, 
+                checkout: false,
             }
         default:
             return state
