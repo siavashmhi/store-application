@@ -1,6 +1,8 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import ProductContextProvider from "./context/ProductContextProvider";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -16,6 +18,8 @@ function App() {
             <ToastContainer />
             <Switch>
               <Route path="/cart" component={CartPage}/>
+              <Route path="/login" component={Login}/>
+              <Route path="/signup" component={Signup}/>
               <Route path="/" component={HomePage} exact/>
             </Switch>
           </ProductContextProvider>

@@ -12,6 +12,8 @@ const Navigation = () => {
             <nav className='navbar'>
                 <ul className='navContainer'>
                     <li><NavLink to='/'>Products</NavLink></li>
+                    <li><NavLink to='/signup'>Sign up</NavLink></li>
+                    <li><NavLink to='/login'>Login</NavLink></li>
                 </ul>
                 <div className='cartIconContainer'>
                     <NavLink to='/cart'>
