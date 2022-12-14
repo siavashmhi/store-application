@@ -1,20 +1,13 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
+import { NavLink } from 'react-router-dom';
 import trashIcon from '../assets/images/trash.svg'
 import '../assets/styles/cartpage.css'
 
 const CartPage = () => {
-    const { products, totalPrice } = useProducts()
+    const { products, totalPrice, itemsCounter, checkout} = useProducts()
     const dispatch = useDispatchProducts()
-
-    if(!products.length) {
-        return (
-            <Layout>
-                <h2>there is no any product</h2>
-            </Layout>
-        )
-    }
 
     const renderProductsInCart = item => {
         return (
@@ -31,7 +24,6 @@ const CartPage = () => {
                         item.quantity > 1 ? 
                         <button onClick={() => dispatch({type: "DECREASE", payload: item})}>-</button> 
                         : <button onClick={() => dispatch({type: "REMOVE", payload: item})}>
-                            {/* <BsFillTrashFill /> */}
                             <img src={trashIcon} alt="icon" style={{width: "20px"}}/>
                         </button>
                         
@@ -55,7 +47,33 @@ const CartPage = () => {
                         }
                     </section>
                     <section className='productSummery'>
-                        {totalPrice}
+                        {
+                            itemsCounter > 0 && 
+                            <section className='summery'>
+                                <p>Total Items: <span>{itemsCounter}</span></p>
+                                <p>Total Price: <span>{totalPrice}</span></p>
+                                <div className='btns-summery'>
+                                    <button onClick={() => dispatch({type: "CHECKOUT"})}>Check Out</button>
+                                    <button onClick={() => dispatch({type: "CLEAR"})}>Clear</button>
+                                </div>
+                            </section>
+                        }
+
+                        {
+                            checkout && 
+                            <section className='checkot'>
+                                <h3 className='checkout-title'>checkout is successfuly.....</h3>
+                                <NavLink to='/'>Back to Shop</NavLink>
+                            </section>
+                        }
+
+                        {
+                            itemsCounter === 0 && !checkout &&
+                            <section className='clear'>
+                                <h3>there is no any products</h3>
+                                <NavLink to='/'>Back to Shop</NavLink>
+                            </section>
+                        }
                     </section>
                 </div>
             </main>
