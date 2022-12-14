@@ -138,3 +138,44 @@
 .btns-summery .clearBtn:hover {
     background-color: #b61f1f;
 }
+
+.checkoutContainer {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout,
+.clear {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    width: 400px;
+    height: 200px;
+}
+
+.checkoutContainer h3 {
+    margin-bottom: 50px;
+    color: #1a73e8;
+    font-size: 1.4rem;
+}
+
+.checkoutContainer .link {
+    text-decoration: none;
+    background-color:#c52c2c;
+    border-radius: 5px;
+    padding: 7px 10px;
+    min-width: 100px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.checkoutContainer .link:hover {
+    background-color:#b61f1f;
+}

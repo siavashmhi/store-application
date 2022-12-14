@@ -1,7 +1,8 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
-import { renderProductsInCart, checkOutInCart, clearCartInCart} from '../utilities/functions';
+import { renderProductsInCart } from '../utilities/functions';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../assets/styles/cartpage.css'
 
@@ -19,6 +20,32 @@ const CartPage = () => {
     const clearCartHandler = () => {
         dispatch({type: "CLEAR"})
         toast.success('your cart has been cleared.')
+    }
+
+    if(checkout) {
+        return (
+            <Layout>
+                <div className='checkoutContainer'>
+                    <section className='checkout'>
+                        <h3 className='checkout-title'>checkout is successfuly</h3>
+                        <Link className='link' to='/'>Back to Shop</Link>
+                    </section>
+                </div>
+            </Layout>
+        )
+    }
+
+    if(itemsCounter === 0 && !checkout) {
+        return (
+            <Layout>
+                <div className="checkoutContainer">
+                    <section className='clear'>
+                        <h3>there is no any products</h3>
+                        <Link className='link' to='/'>Back to Shop</Link>
+                    </section>
+                </div>
+            </Layout>
+        )
     }
 
     return (
@@ -44,11 +71,6 @@ const CartPage = () => {
                                 </div>
                             </section>
                         }
-
-                        {checkout && checkOutInCart()}
-
-                        {itemsCounter === 0 && !checkout && clearCartInCart()}
-
                     </section>
                 </div>
             </main>

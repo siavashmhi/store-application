@@ -47,25 +47,4 @@ const renderProductsInCart = (item, dispatch) => {
     )
 }
 
-//for checkout in cart 
-const checkOutInCart = () => {
-    return (
-        <section className='checkot'>
-            <h3 className='checkout-title'>checkout is successfuly.....</h3>
-            <NavLink to='/'>Back to Shop</NavLink>
-        </section>
-    )
-}
-
-//for clear cart in cart component
-const clearCartInCart = () => {
-    return (
-        <section className='clear'>
-            <h3>there is no any products</h3>
-            <NavLink to='/'>Back to Shop</NavLink>
-        </section>
-    )
-}
-
-export { checkInCart, itemsCounterAndTotalPrice,
-     renderProductsInCart, checkOutInCart, clearCartInCart}
+export { checkInCart, itemsCounterAndTotalPrice, renderProductsInCart }
