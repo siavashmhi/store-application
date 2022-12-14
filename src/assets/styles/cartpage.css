@@ -55,17 +55,6 @@
     height: 100%;
 }
 
-.productSummery {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 30%;
-    margin-left: 3rem;
-    padding: 1rem;
-}
-
 .productBtnContainer {
     display: flex;
     justify-content: space-between;
@@ -89,4 +78,63 @@
 
 .productBtnContainer button:hover {
     background-color: #08499d;
+}
+
+.productSummery {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 30%;
+    margin-left: 3rem;
+    padding: 1rem;
+    max-height: 200px;
+}
+
+.summery {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.summery p {
+    font-size: 1.1rem;
+}
+
+.summery span {
+    margin-left: 30px;
+    color: #1a73e8;
+    font-weight: bold;
+}
+
+.btns-summery {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btns-summery button {
+    border: none;
+    padding: 7px 10px;
+    background-color: #1a73e8;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    min-width: 100px;
+    font-size: 1rem;
+}
+
+.btns-summery button:hover {
+    background-color: #08499d;
+}
+
+.btns-summery .clearBtn {
+    background-color: #c52c2c;
+}
+
+.btns-summery .clearBtn:hover {
+    background-color: #b61f1f;
 }

@@ -40,7 +40,7 @@ const CartPage = () => {
                                 <p>Total Price: <span>{totalPrice}</span></p>
                                 <div className='btns-summery'>
                                     <button onClick={() => checkOutHandler()}>Check Out</button>
-                                    <button onClick={() => clearCartHandler()}>Clear</button>
+                                    <button className='clearBtn' onClick={() => clearCartHandler()}>Clear</button>
                                 </div>
                             </section>
                         }
