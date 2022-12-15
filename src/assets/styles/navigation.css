@@ -25,11 +25,14 @@
 .navContainer a {
     color: #1a73e8;
     font-weight: bold;
-    border-bottom: 3px solid #1a73e8;
     border-radius: 2px;
     text-decoration: none;
     font-size: 1.3rem;
     margin-left: 60px;
+}
+
+.navContainer .product-li {
+    border-bottom: 3px solid #1a73e8;
 }
 
 .cartIconContainer {
