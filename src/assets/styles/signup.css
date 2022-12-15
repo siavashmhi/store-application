@@ -12,3 +12,26 @@
     margin-top: 70px;
     border-radius: 5px;
 }
+
+.form-container button {
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    background-color: #2681f0;
+    font-size: 1rem;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.submitBtn:hover {
+    background-color: #0c6bde;
+}
+
+.submitBtn:disabled,
+.submitBtn[disabled] {
+    background-color: #d46a6a;
+    cursor: not-allowed;
+}

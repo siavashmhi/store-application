@@ -41,6 +41,13 @@ const Signup = () => {
                     <Input formik={formik} label='Confirm Password' nameProp="confirmPassword"
                     errors={formik.errors.confirmPassword}
                     touched={formik.touched.confirmPassword} type='password'/>
+
+                    <div>
+                        <button className='submitBtn'
+                         type='submit' disabled={!formik.isValid}>
+                            submit
+                        </button>
+                    </div>
                 </form>
             </div>
         </Layout>
