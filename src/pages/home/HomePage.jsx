@@ -1,8 +1,8 @@
 import React from 'react';
-import Product from '../components/Product';
-import Layout from '../layout/Layout';
-import * as data from '../data.js'
-import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
+import Product from '../../components/product/Product'
+import Layout from '../../layout/Layout';
+import * as data from '../../data.js'
+import { useDispatchProducts, useProducts} from '../../context/ProductContextProvider';
 import { toast } from 'react-toastify'
 
 const HomePage = () => {

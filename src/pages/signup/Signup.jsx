@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { initialValues, validationSchema} from '../utilities/form';
-import Input from '../common/input/Input';
-import Layout from '../layout/Layout';
-import '../assets/styles/signup.css'
+import { initialValues, validationSchema} from '../../utilities/form';
+import Input from '../../common/input/Input';
+import Layout from '../../layout/Layout';
+import './signup.css'
 
 const onSubmit = value => {
     console.log(value);

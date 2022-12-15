@@ -1,8 +1,8 @@
 import React from "react";
-import HomePage from "./pages/HomePage";
-import CartPage from "./pages/CartPage";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import HomePage from "./pages/home/HomePage";
+import CartPage from "./pages/cart/CartPage";
+import Login from "./pages/login/Login";
+import Signup from "./pages/signup/Signup";
 import ProductContextProvider from "./context/ProductContextProvider";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';

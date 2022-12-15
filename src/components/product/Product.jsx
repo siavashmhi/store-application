@@ -1,7 +1,7 @@
 import React from 'react';
-import { useProducts } from '../context/ProductContextProvider';
-import { checkInCart } from '../utilities/functions';
-import '../assets/styles/product.css'
+import { useProducts } from '../../context/ProductContextProvider';
+import { checkInCart } from '../../utilities/functions';
+import './product.css'
 
 const Product = ({product, addProductHandler}) => {
     const { products } = useProducts()

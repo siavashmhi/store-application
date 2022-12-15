@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import shopCart from '../assets/images/shop.svg'
-import { useProducts } from '../context/ProductContextProvider';
-import '../assets/styles/navigation.css'
+import shopCart from '../../assets/images/shop.svg'
+import { useProducts } from '../../context/ProductContextProvider';
+import './navigation.css'
 
 const Navigation = () => {
     const { itemsCounter } = useProducts()

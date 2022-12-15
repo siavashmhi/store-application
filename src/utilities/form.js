@@ -8,6 +8,11 @@ const initialValues = {
     confirmPassword: "",
 }
 
+const initialLoginValues = {
+    email: "",
+    password: "",
+}
+
 //validation form data with yup pakage
 const validationSchema = Yup.object({
     name: Yup.string().required('Name is required')
@@ -24,4 +29,4 @@ const validationSchema = Yup.object({
 })
 
 
-export {initialValues, validationSchema}
+export {initialValues, validationSchema, initialLoginValues}

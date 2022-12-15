@@ -1,10 +1,10 @@
 import React from 'react';
-import Layout from '../layout/Layout';
-import { useDispatchProducts, useProducts } from '../context/ProductContextProvider';
-import { renderProductsInCart } from '../utilities/functions';
+import Layout from '../../layout/Layout';
+import { useDispatchProducts, useProducts } from '../../context/ProductContextProvider';
+import { renderProductsInCart } from '../../utilities/functions';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import '../assets/styles/cartpage.css'
+import './cartpage.css'
 
 const CartPage = () => {
     const { products, totalPrice, itemsCounter, checkout} = useProducts()
