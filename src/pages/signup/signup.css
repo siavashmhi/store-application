@@ -35,3 +35,8 @@
     background-color: #d46a6a;
     cursor: not-allowed;
 }
+
+.form-container .myError {
+    color: red;
+    font-weight: bold;
+}

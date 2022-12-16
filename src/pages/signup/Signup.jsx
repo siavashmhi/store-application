@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { initialValues, validationSchema} from '../../utilities/form';
+import signupUser from '../../services/signupService';
+import { toast } from 'react-toastify';
 import Input from '../../common/input/Input';
 import Layout from '../../layout/Layout';
 import './signup.css'
 
-const onSubmit = value => {
-    console.log(value);
-}
 
 const Signup = () => {
+
+    const [myError, setMyError] = useState(null)
+
+    const onSubmit = async (values) => {
+        const {name, email, password, phoneNumber} = values
+        const userData = {
+            name,
+            email,
+            password,
+            phoneNumber,
+        }
+       try {
+        const { data } = await signupUser(userData)
+        console.log(data)
+
+       } catch (error) {
+        if(error.response && error.response.data.message) {
+            setMyError(error.response.data.message)
+        }
+       }
+    }
+
     const formik = useFormik({
         initialValues: initialValues,
         onSubmit,
@@ -17,6 +38,8 @@ const Signup = () => {
         validateOnMount: true,
         enableReinitialize: true,
     })
+
+    if(myError) toast.error(`${myError}`)
 
     return (
         <Layout>
@@ -41,6 +64,8 @@ const Signup = () => {
                     <Input formik={formik} label='Confirm Password' nameProp="confirmPassword"
                     errors={formik.errors.confirmPassword}
                     touched={formik.touched.confirmPassword} type='password'/>
+
+                    {myError && <p className='myError'>{myError}</p>}
 
                     <div>
                         <button className='submitBtn'
