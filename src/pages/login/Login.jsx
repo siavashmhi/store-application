@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../layout/Layout';
 import { useFormik } from 'formik';
 import Input from '../../common/input/Input';
 import { initialLoginValues } from '../../utilities/form';
 import loginUser from '../../services/loginService';
-import { useAuthDispatch } from '../../context/AuthContextProvider';
+import { useAuthDispatch, useAuth } from '../../context/AuthContextProvider';
 import { useQuery } from '../../hooks/hooks';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -20,8 +20,14 @@ const validation = Yup.object({
 const Login = ({history}) => {
     const authDispatch = useAuthDispatch()
     const [myError, setMyError] = useState(null)
-    // const query = useQuery()
-    // console.log(query.get('redirect'));
+    const query = useQuery()
+    const redirect = query.get('redirect') || '/'
+    const auth = useAuth()
+
+    useEffect(() => {
+        if(auth) history.push(redirect)
+    }, [redirect, auth])
+
     const onSubmit = async(values) => {
         try {
             const { data } = await loginUser(values)
@@ -42,8 +48,6 @@ const Login = ({history}) => {
         validateOnMount: true,
         enableReinitialize: true,
     })
-
-    if(myError) toast.error(`${myError}`)
 
     return (
         <Layout>
@@ -66,7 +70,9 @@ const Login = ({history}) => {
                         </button>
                     </div>
                     <div className='mylink'>
-                        <Link className='signup-link' to='/signup'>Not signup yet ?</Link>
+                        <Link className='signup-link' to={`/signup?redirect=${redirect}`}>
+                            Not signup yet ?
+                        </Link>
                     </div>
                 </form>
             </div>

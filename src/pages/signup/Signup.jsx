@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { initialValues, validationSchema} from '../../utilities/form';
 import signupUser from '../../services/signupService';
 import { toast } from 'react-toastify';
-import { useAuthDispatch } from '../../context/AuthContextProvider';
+import { useAuthDispatch, useAuth } from '../../context/AuthContextProvider';
 import Input from '../../common/input/Input';
 import Layout from '../../layout/Layout';
 import { useQuery } from '../../hooks/hooks';
@@ -16,6 +16,12 @@ const Signup = ({history}) => {
     const [myError, setMyError] = useState(null)
     const query = useQuery()
     const redirect = query.get('redirect') || '/'
+    const auth = useAuth()
+
+    useEffect(() => {
+        if(auth) history.push(redirect)
+    }, [redirect, auth])
+
     const onSubmit = async (values) => {
         const {name, email, password, phoneNumber} = values
         const userData = {
@@ -46,8 +52,6 @@ const Signup = ({history}) => {
         validateOnMount: true,
         enableReinitialize: true,
     })
-
-    if(myError) toast.error(`${myError}`)
 
     return (
         <Layout>
@@ -82,7 +86,7 @@ const Signup = ({history}) => {
                         </button>
                     </div>
                     <div className='login-page-link'>
-                        <Link to='/login'>go to login page</Link>
+                        <Link to={`/login/?redirect=${redirect}`}>go to login page</Link>
                     </div>
                 </form>
             </div>
