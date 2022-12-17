@@ -1,4 +1,4 @@
-.checkout-page-container {
+.profile-container {
     width: 100vw;
     height: 60vh;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.checkout-page {
+.profile {
     width: 600px;
     height: 300px;
     padding: 20px;
@@ -17,15 +17,13 @@
     border-radius: 5px;
 }
 
-.checkout-page p {
+.profile p {
     margin-top: 30px;
     font-size: 1.5rem;
     color: black;
 }
 
-.checkout-page-container h2 {
-    font-size: 1.7rem;
-    font-weight: bold;
+.profile-container h2 {
     color: #1a73e8;
-    margin-top: 30px;
+    font-size: 1.7rem;
 }

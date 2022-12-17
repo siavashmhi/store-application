@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../../layout/Layout';
-import { useFormik } from 'formik';
 import Input from '../../common/input/Input';
+import { useAuthDispatch, useAuth } from '../../context/AuthContextProvider';
+import { useFormik } from 'formik';
 import { initialLoginValues } from '../../utilities/form';
 import loginUser from '../../services/loginService';
-import { useAuthDispatch, useAuth } from '../../context/AuthContextProvider';
 import { useQuery } from '../../hooks/hooks';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -34,7 +34,7 @@ const Login = ({history}) => {
             setMyError(null)
             authDispatch(data)
             toast.success('Login is successfuly.')
-            history.push('/')
+            history.push(redirect)
         } catch (error) {
             if(error.response && error.response.data.message)
             setMyError(error.response.data.message)
