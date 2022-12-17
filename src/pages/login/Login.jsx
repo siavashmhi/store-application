@@ -14,14 +14,14 @@ const validation = Yup.object({
     password: Yup.string().required("Password is required")
 })
 
-const Login = () => {
-    
+const Login = ({history}) => {
     const [myError, setMyError] = useState(null)
     const onSubmit = async(values) => {
         try {
             const { data } = await loginUser(values)
             setMyError(null)
             toast.success('Login is successfuly.')
+            history.push('/')
         } catch (error) {
             if(error.response && error.response.data.message)
             setMyError(error.response.data.message)

@@ -8,8 +8,7 @@ import Layout from '../../layout/Layout';
 import './signup.css'
 
 
-const Signup = () => {
-
+const Signup = ({history}) => {
     const [myError, setMyError] = useState(null)
     const onSubmit = async (values) => {
         const {name, email, password, phoneNumber} = values
@@ -23,6 +22,7 @@ const Signup = () => {
         const { data } = await signupUser(userData)
         setMyError(null)
         toast.success('Signup is successfuly.')
+        history.push('/')
 
        } catch (error) {
         if(error.response && error.response.data.message) {
