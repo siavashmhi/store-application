@@ -38,7 +38,7 @@ const CartPage = () => {
     if(itemsCounter === 0 && !checkout) {
         return (
             <Layout>
-                <div className="checkoutContainer">
+                <div className="clearContainer">
                     <section className='clear'>
                         <h3>there is no any products</h3>
                         <Link className='link' to='/'>Back to Shop</Link>
@@ -66,7 +66,9 @@ const CartPage = () => {
                                 <p>Total Items: <span>{itemsCounter}</span></p>
                                 <p>Total Price: <span>{totalPrice}</span></p>
                                 <div className='btns-summery'>
-                                    <button onClick={() => checkOutHandler()}>Check Out</button>
+                                    <Link to='/signup?redirect=checkout'>
+                                        <button>Check Out</button>
+                                    </Link>
                                     <button className='clearBtn' onClick={() => clearCartHandler()}>Clear</button>
                                 </div>
                             </section>

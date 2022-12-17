@@ -1,5 +1,4 @@
 import { itemsCounterAndTotalPrice } from "../utilities/functions"
-import { toast } from "react-toastify"
 
 const reducer = (state, action) => {
     switch(action.type) {

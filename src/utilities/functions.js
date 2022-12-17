@@ -1,5 +1,4 @@
 import trashIcon from '../assets/images/trash.svg'
-import { NavLink } from 'react-router-dom'
 
 //check product in cart
 function checkInCart(products, product) {

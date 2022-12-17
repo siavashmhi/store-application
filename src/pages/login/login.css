@@ -1,6 +1,6 @@
 .main-login-container {
     width: 100vw;
-    height: 80vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,4 +38,15 @@
 .login-container .loginError {
     color: red;
     font-weight: bold;
+}
+
+.login-container .signup-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #1a73e8;
+    font-weight: bold;
+}
+
+.login-container .mylink {
+    margin-top: 10px;
 }
