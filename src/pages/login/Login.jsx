@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../../layout/Layout';
 import { useFormik } from 'formik';
 import Input from '../../common/input/Input';
 import { initialLoginValues } from '../../utilities/form';
+import loginUser from '../../services/loginService';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup'
 import './login.css'
-
-const onSubmit = value => { console.log(value) }
 
 const validation = Yup.object({
     email: Yup.string().email("Enter valide email")
@@ -15,6 +15,19 @@ const validation = Yup.object({
 })
 
 const Login = () => {
+    
+    const [myError, setMyError] = useState(null)
+    const onSubmit = async(values) => {
+        try {
+            const { data } = await loginUser(values)
+            setMyError(null)
+            toast.success('Login is successfuly.')
+        } catch (error) {
+            if(error.response && error.response.data.message)
+            setMyError(error.response.data.message)
+        }
+    }
+
     const formik = useFormik({
         initialValues: initialLoginValues,
         onSubmit,
@@ -22,6 +35,8 @@ const Login = () => {
         validateOnMount: true,
         enableReinitialize: true,
     })
+
+    if(myError) toast.error(`${myError}`)
 
     return (
         <Layout>
@@ -34,6 +49,8 @@ const Login = () => {
                     <Input formik={formik} label='Password' nameProp="password"
                     errors={formik.errors.password}
                     touched={formik.touched.password} type='password'/>
+
+                    {myError && <p className='loginError'>{myError}</p>}
 
                     <div>
                         <button type='submit'

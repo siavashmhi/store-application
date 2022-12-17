@@ -7,7 +7,7 @@ const Product = ({product, addProductHandler}) => {
     const { products } = useProducts()
 
     return (
-        <section key={product.id} className='product'>
+        <section className='product'>
             <div>
                 <img src={product.image} alt="img"/>
             </div>

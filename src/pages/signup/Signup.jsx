@@ -11,7 +11,6 @@ import './signup.css'
 const Signup = () => {
 
     const [myError, setMyError] = useState(null)
-
     const onSubmit = async (values) => {
         const {name, email, password, phoneNumber} = values
         const userData = {
@@ -22,7 +21,8 @@ const Signup = () => {
         }
        try {
         const { data } = await signupUser(userData)
-        console.log(data)
+        setMyError(null)
+        toast.success('Signup is successfuly.')
 
        } catch (error) {
         if(error.response && error.response.data.message) {

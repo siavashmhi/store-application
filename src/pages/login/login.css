@@ -34,3 +34,8 @@
     background-color: #d46a6a;
     cursor: not-allowed;
 }
+
+.login-container .loginError {
+    color: red;
+    font-weight: bold;
+}

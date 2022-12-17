@@ -25,7 +25,7 @@ const HomePage = () => {
                     {
                         data.products.map((product) => {
                             return (
-                                <Product product={product}
+                                <Product key={product.id} product={product}
                                   addProductHandler={addProductHandler}/>
                             )
                         })
